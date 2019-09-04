@@ -11,7 +11,7 @@ and [SA](https://github.com/coinse/sadl).
 
 `index_lenet1.npy` and `index_lenet1_test.npy` contains the 10000 
 training examples index and 1000 test examples index in the MNIST dataset
-that lenet1 model can classify correctly.
+that LeNet-1 model can classify correctly.
 
 `confidence_test.csv` and `confidence_train.csv` are the confidence values 
 of 1000 test examples and 10000 training examples respectively.
@@ -48,3 +48,7 @@ python train_confidence_regress.py
 python train_lsa_regress.py
 python train_dsa_regress.py
 ```
+
+## Note
+The code shows the process for LeNet-1 model and robustness prediction for
+other models is the same as it.
