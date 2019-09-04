@@ -1,9 +1,6 @@
 from __future__ import print_function
 
 from keras.datasets import mnist
-from keras.layers import Convolution2D, MaxPooling2D, Input, Dense, Activation, Flatten
-from keras.models import Model, Sequential
-from keras.utils import to_categorical
 from keras.models import load_model
 import numpy as np
 
@@ -23,14 +20,27 @@ test_index = np.load('index_lenet1_test.npy')
 train = x_train[index]
 test = x_test[test_index]
 
-confidence = []
+confidence_train = []
 
 for i in range(10000):
     sample = np.expand_dims(train[i], 0)
     pred = model.predict(sample)[0]
     label = np.argmax(pred)
     temp = pred[label]
-    confidence.append(temp)
+    confidence_train.append(temp)
 
-confidence = np.array(confidence)
-np.savetxt('./confidence_train.csv', confidence, fmt='%s')
+confidence = np.array(confidence_train)
+np.savetxt('./confidence_train.csv', confidence_train, fmt='%s')
+
+
+confidence_test = []
+
+for i in range(1000):
+    sample = np.expand_dims(test[i], 0)
+    pred = model.predict(sample)[0]
+    label = np.argmax(pred)
+    temp = pred[label]
+    confidence_test.append(temp)
+
+confidence = np.array(confidence_test)
+np.savetxt('./confidence_test.csv', confidence_test, fmt='%s')
