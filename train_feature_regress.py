@@ -4,8 +4,8 @@ import numpy as np
 from keras.layers import Input
 
 
-features_train = np.loadtxt('./features_train.csv')
-features_test = np.loadtxt('./features_test.csv')
+features_train = np.loadtxt('./layer_train.csv')
+features_test = np.loadtxt('./layer_test.csv')
 
 robust_train = np.loadtxt('./robust_lenet1_train.csv')[:10000]
 robust_test = np.loadtxt('./robust_lenet1_test.csv')[:1000]

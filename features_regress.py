@@ -5,7 +5,7 @@ from sklearn.metrics import mean_absolute_error
 
 
 robust = np.loadtxt('./robust_lenet1_test.csv')[:1000]
-features = np.loadtxt('./features_test.csv')
+features = np.loadtxt('./layer_test.csv')
 
 model = load_model('./features_regress.h5')
 results = model.predict(features).reshape(1000,)
