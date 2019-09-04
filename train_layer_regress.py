@@ -4,11 +4,11 @@ import numpy as np
 from keras.layers import Input
 
 
-features_train = np.loadtxt('./layer_train.csv')
-features_test = np.loadtxt('./layer_test.csv')
+features_train = np.loadtxt('data/layer_train.csv')
+features_test = np.loadtxt('data/layer_test.csv')
 
-robust_train = np.loadtxt('./robust_lenet1_train.csv')[:10000]
-robust_test = np.loadtxt('./robust_lenet1_test.csv')[:1000]
+robust_train = np.loadtxt('data/robust_lenet1_train.csv')[:10000]
+robust_test = np.loadtxt('data/robust_lenet1_test.csv')[:1000]
 
 input_shape = (10,)
 input_tensor = Input(shape=input_shape)
@@ -21,7 +21,7 @@ x = Dense(1)(x)
 model = Model(input_tensor, x)
 
 from keras.callbacks import ModelCheckpoint
-checkpoint = ModelCheckpoint(filepath='./features_regress.h5',
+checkpoint = ModelCheckpoint(filepath='model/layer_regress.h5',
                              monitor='val_mean_absolute_error',
                              verbose=1,
                              save_best_only='True',

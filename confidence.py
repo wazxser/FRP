@@ -13,10 +13,10 @@ x_test = x_test.astype('float32')
 x_train /= 255
 x_test /= 255
 
-model = load_model('./lenet1.h5')
+model = load_model('model/lenet1.h5')
 
-index = np.load('index_lenet1.npy')
-test_index = np.load('index_lenet1_test.npy')
+index = np.load('data/index_lenet1.npy')
+test_index = np.load('data/index_lenet1_test.npy')
 train = x_train[index]
 test = x_test[test_index]
 
@@ -30,7 +30,7 @@ for i in range(10000):
     confidence_train.append(temp)
 
 confidence = np.array(confidence_train)
-np.savetxt('./confidence_train.csv', confidence_train, fmt='%s')
+np.savetxt('data/confidence_train.csv', confidence_train, fmt='%s')
 
 
 confidence_test = []
@@ -43,4 +43,4 @@ for i in range(1000):
     confidence_test.append(temp)
 
 confidence = np.array(confidence_test)
-np.savetxt('./confidence_test.csv', confidence_test, fmt='%s')
+np.savetxt('data/confidence_test.csv', confidence_test, fmt='%s')

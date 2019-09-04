@@ -5,10 +5,10 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import mean_absolute_error
 
 
-robust_train = np.loadtxt('./robust_lenet1_sa.csv')
-robust_test = np.loadtxt('./robust_lenet1_test.csv')[:1000]
-sa_train = np.loadtxt('./dsa_lenet1_sa.csv')
-sa_test = np.loadtxt('./dsa_lenet1.csv')[:1000]
+robust_train = np.loadtxt('data/robust_lenet1_sa.csv')
+robust_test = np.loadtxt('data/robust_lenet1_test.csv')[:1000]
+sa_train = np.loadtxt('data/dsa_lenet1_sa.csv')
+sa_test = np.loadtxt('data/dsa_lenet1.csv')[:1000]
 
 pcc = .0
 for i in range(10):

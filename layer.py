@@ -15,10 +15,10 @@ x_test /= 255
 y_train = to_categorical(y_train, 10)
 y_test = to_categorical(y_test, 10)
 
-model = load_model('./lenet1.h5')
+model = load_model('model/lenet1.h5')
 
-index = np.load('index_lenet1.npy')
-test_index = np.load('index_lenet1_test.npy')
+index = np.load('data/index_lenet1.npy')
+test_index = np.load('data/index_lenet1_test.npy')
 train = x_train[index]
 test = x_test[test_index]
 
@@ -37,7 +37,7 @@ for layer in layers:
             else:
                 arr = np.append(arr, temp, axis=0)
 arr = np.array(arr)
-np.savetxt('./layer_test.csv', arr)
+np.savetxt('data/layer_test.csv', arr)
 
 
 for layer in layers:
@@ -52,4 +52,4 @@ for layer in layers:
             else:
                 arr = np.append(arr, temp, axis=0)
 arr = np.array(arr)
-np.savetxt('./layer_train.csv', arr)
+np.savetxt('data/layer_train.csv', arr)

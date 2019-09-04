@@ -4,10 +4,10 @@ from keras.models import load_model
 from sklearn.metrics import mean_absolute_error
 
 
-robust = np.loadtxt('./robust_lenet1_test.csv')[:1000]
-features = np.loadtxt('./layer_test.csv')
+robust = np.loadtxt('data/robust_lenet1_test.csv')[:1000]
+features = np.loadtxt('data/layer_test.csv')
 
-model = load_model('./features_regress.h5')
+model = load_model('model/layer_regress.h5')
 results = model.predict(features).reshape(1000,)
 
 # np.savetxt('features_results.csv', results)
